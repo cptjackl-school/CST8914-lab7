@@ -43,12 +43,12 @@
         </div>
 
         <!-- grouped radio buttons in a fieldset -->
-        <fieldset required>
+        <fieldset>
           <legend>Gender <span class="required">*</span></legend>
           <div class="control">
             <!-- added for attribute to label-->
             <label for="gender_male">Male</label>
-            <input id="gender_male" name="gender" type="radio" value="male" />
+            <input required id="gender_male" name="gender" type="radio" value="male" />
           </div>
           <div class="control">
             <!-- added for attribute to label-->
@@ -90,7 +90,7 @@
       
           if ((value = $.urlParam(input)) === null) {
             if ($('fieldset.errors').length === 0) {
-              $('form').prepend('<fieldset class="errors"><legend>Errors</legend><ul></ul></fieldset>');
+              $('form').prepend('<fieldset class="errors" role="alert"><legend>Errors</legend><ul></ul></fieldset>');
             }
       
             $referencedElement = null;
