@@ -91,6 +91,7 @@
       
           if ((value = $.urlParam(input)) === null) {
             if ($('fieldset.errors').length === 0) {
+              // added a role="alert" to the error container for screen readers and id="form-errors" to focus on it when the page loads
               $('form').prepend('<fieldset id="form-errors" class="errors" role="alert"><legend>Errors</legend><ul></ul></fieldset>');
             }
       
@@ -107,7 +108,8 @@
               $referencedElement = $input;
             }
       // R.G. hint: fix next line ;)
-            $error = $('<a>' + message + '</a>');
+      // added a href attribute to the error message link to point to the input's ID
+            $error = $('<a href="#' + $referencedElement.attr('id') + '">' + message + '</a>');
             $error.click(function (e) {
               // If we rely on the link's href pointing to the input's ID, it doesn't trigger forms mode in screen readers
               $referencedElement.focus();
@@ -118,8 +120,8 @@
       
             if ($(':not(form):focus').length === 0) {
               // See https://stackoverflow.com/questions/46134247/jquery-setting-focus-doesnt-work-in-ie11/
-
-              ('#form-errors').focus();
+              //focus on the error container to make sure screen readers read the error messages
+              $('#form-errors').focus();
             
             }
           } else {
@@ -142,7 +144,7 @@
             validateInput('gender', 'Please tell us your gender!');
             validateInput('accept_agbs', 'You must accept our terms and conditions!');
       
-            if ($('.errors').length === 0) {
+            if ($('fieldset.errors').length === 0) {
               return alert('All inputs are valid.');
             }
           }
