@@ -29,24 +29,38 @@
         <h1>Feedback form</h1>
     <form>
         <div class="control">
-          <label>Full name <span class="required">*</span></label><input id="name" name="name" type="text" />
+          <!-- added for attribute to label-->
+          <label for="name">Full name <span class="required">*</span></label>
+          <!-- added required attribute to input -->
+          <input required id="name" name="name" type="text" />
         </div>
+
         <div class="control">
-          <label>Biography</label><textarea id="biography" name="biography" type="text"></textarea>
-          <span>Include examples on your skills in JavaScript.</span>
+          <!-- added for attribute to label-->
+          <label for="biography">Biography</label>
+          <textarea id="biography" name="biography" type="text" aria-describedby="biography-help"></textarea>
+          <span id="biography-help">Include examples on your skills in JavaScript.</span>
         </div>
-        
-          <div>Gender</div>
+
+        <!-- grouped radio buttons in a fieldset -->
+        <fieldset>
+          <legend>Gender</legend>
           <div class="control">
-            <input id="gender_male" name="gender" type="radio" value="male" /><label>Male</label>
+            <!-- added for attribute to label-->
+            <label for="gender_male">Male</label>
+            <input id="gender_male" name="gender" type="radio" value="male" />
           </div>
           <div class="control">
-            <input id="gender_female" name="gender" type="radio" value="female" /><label>Female</label>
+            <!-- added for attribute to label-->
+            <label for="gender_female">Female</label>
+            <input id="gender_female" name="gender" type="radio" value="female" />
           </div>
-        
+        </fieldset>
+        <!-- added for attribute to label and required attribute to input, and the asterisk -->
         <div class="control">
-          <input id="accept_agbs" name="accept_agbs" type="checkbox" value="1" /><label>I accept the terms and conditions</label>
+          <input required id="accept_agbs" name="accept_agbs" type="checkbox" value="1" /><label for="accept_agbs"><span class="required">*</span>I accept the terms and conditions</label>
         </div>
+
         <div class="control">
           <input name="validate" type="hidden" value="1" /><input type="submit" value="Register" />
         </div>

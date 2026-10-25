@@ -24,7 +24,7 @@ body {
 a{
   color: #006b3a;
 }
-
+/* removed the outline:none rule for links, it made it impossible to view where the keyboard navigation was focused */
 h2 {
   margin-top: 0;
 }
@@ -204,6 +204,7 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
+        <!-- Removed the tabindex attribute as it was messing up the focus order for keyboard users, business wasnt able to be accessed via keyboard -->
         <a href="#">Business</a>
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
@@ -212,8 +213,6 @@ article p {
       </nav>
     </div>
   </header>
-  
-
   <main class="container">
     <h2 class="offscreen">Top story</h2>
     <article class="main-story">
@@ -227,14 +226,15 @@ article p {
         </p>
       </div>
     </article>
-  
     <div class="side-by-side">
       <div class="column">
         <div class="tier-header">
+          <!-- Removed the tabindex attribute that was screwing up the flow of keyboard navigation-->
           <h2>In the news</h2>
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
+          <!-- Removed the tabindex attribute that was screwing up the flow of keyboard navigation-->
           <p><a href="#"><b>Read More</b></a></p>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
@@ -276,10 +276,12 @@ article p {
         </article>
       </div>
     </div>
+    <!--Moved the newsletter to the bottom of the file to fix flow of keyboard navigation-->
     <div class="newsletter">
     <div class="container">
       <h3>Like the Funion? Consider joining our newsletter!</h3>
       <input type="text">
+      <!--Changed onFocus to onClick, to stop the page from automatically changing when the user navigates to the button instad of when it is clicked -->
       <button type="button" onClick="getFocus()">Sign up</button>
     </div>  
   </div>
