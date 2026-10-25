@@ -91,7 +91,7 @@
       
           if ((value = $.urlParam(input)) === null) {
             if ($('fieldset.errors').length === 0) {
-              $('form').prepend('<fieldset class="errors" role="alert"><legend>Errors</legend><ul></ul></fieldset>');
+              $('form').prepend('<fieldset id="form-errors" class="error" role="alert"><legend>Errors</legend><ul></ul></fieldset>');
             }
       
             $referencedElement = null;
@@ -118,6 +118,8 @@
       
             if ($(':not(form):focus').length === 0) {
               // See https://stackoverflow.com/questions/46134247/jquery-setting-focus-doesnt-work-in-ie11/
+
+              ('#form-errors').focus();
             
             }
           } else {
