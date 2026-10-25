@@ -37,14 +37,14 @@
 
         <div class="control">
           <!-- added for attribute to label-->
-          <label for="biography">Biography</label>
-          <textarea id="biography" name="biography" type="text" aria-describedby="biography-help"></textarea>
+          <label for="biography">Biography <span class="required">*</span></label>
+          <textarea required id="biography" name="biography" type="text" aria-describedby="biography-help"></textarea>
           <span id="biography-help">Include examples on your skills in JavaScript.</span>
         </div>
 
         <!-- grouped radio buttons in a fieldset -->
-        <fieldset>
-          <legend>Gender</legend>
+        <fieldset required>
+          <legend>Gender <span class="required">*</span></legend>
           <div class="control">
             <!-- added for attribute to label-->
             <label for="gender_male">Male</label>
