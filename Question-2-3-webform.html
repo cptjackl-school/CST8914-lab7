@@ -31,7 +31,7 @@
         <div class="control">
           <!-- added for attribute to label-->
           <label for="name">Full name <span class="required">*</span></label>
-          <!-- added required attribute to input -->
+          
           <input  id="name" name="name" type="text" />
         </div>
 
@@ -48,7 +48,7 @@
           <div class="control">
             <!-- added for attribute to label-->
             <label for="gender_male">Male</label>
-            <!-- added required attribute to input -->
+            
             <input  id="gender_male" name="gender" type="radio" value="male" />
           </div>
           <div class="control">
@@ -57,7 +57,7 @@
             <input id="gender_female" name="gender" type="radio" value="female" />
           </div>
         </fieldset>
-        <!-- added for attribute to label and required attribute to input, and the asterisk -->
+        <!-- added for attribute to label and the asterisk -->
         <div class="control">
           <input  id="accept_agbs" name="accept_agbs" type="checkbox" value="1" /><label for="accept_agbs"><span class="required">*</span>I accept the terms and conditions</label>
         </div>
@@ -92,7 +92,7 @@
           if ((value = $.urlParam(input)) === null) {
             if ($('fieldset.errors').length === 0) {
               // added a role="alert" to the error container for screen readers and id="form-errors" to focus on it when the page loads
-              $('form').prepend('<fieldset id="form-errors" class="errors" role="alert"><legend>Errors</legend><ul></ul></fieldset>');
+              $('form').prepend('<fieldset tabindex="-1" id="form-errors" class="errors" role="alert"><legend>Errors</legend><ul></ul></fieldset>');
             }
       
             $referencedElement = null;
@@ -128,7 +128,7 @@
             if ($input.is(':checkbox')) {
               $input.attr('checked', true);
             }
-      
+
             if ($input.is(':radio')) {
               return $input.filter('[value="' + value + '"]').attr('checked', true);
             } else {
@@ -143,7 +143,8 @@
             validateInput('biography', 'Please tell us something about your history!');
             validateInput('gender', 'Please tell us your gender!');
             validateInput('accept_agbs', 'You must accept our terms and conditions!');
-      
+            
+            //fixed classname in the if statement to match the class name of the error container
             if ($('fieldset.errors').length === 0) {
               return alert('All inputs are valid.');
             }
